@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { VuesticPlugin } from 'vuestic-ui' // <-
+import 'vuestic-ui/dist/vuestic-ui.css' // <-
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -17,6 +19,7 @@ const firebaseConfig = {
   appId: "1:883476899634:web:29f384190ae1d5067f992b"
 };
 
+
 // Initialize Firebase
 const app2 = initializeApp(firebaseConfig);
 
@@ -24,5 +27,6 @@ const app2 = initializeApp(firebaseConfig);
 const app = createApp(App)
 
 app.use(router)
+app.use(VuesticPlugin)
 
 app.mount('#app')
