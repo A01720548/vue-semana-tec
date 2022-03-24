@@ -1,6 +1,7 @@
 <script setup>
 import { db } from '../main'
 import { collection, addDoc } from 'firebase/firestore'
+import { auth } from '../main'
 
 
 </script>
@@ -63,7 +64,8 @@ export default {
                     firstName: this.firstNameValue,
                     lastName: this.lastNameValue,
                     favoriteNumber: this.favoriteNumber,
-                    dob: this.dateValue
+                    dob: this.dateValue,
+                    uid: auth.currentUser.uid
                 });
                 console.log("Document written with ID: ", docRef.id);
             } catch (e) {

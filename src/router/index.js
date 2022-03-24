@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterViewVue from '../views/RegisterView.vue'
+import LogoutViewVue from '../views/LogoutView.vue'
 import TeamViewVue from '../views/TeamView.vue'
 import { auth } from '../main'
 
@@ -30,6 +31,14 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: RegisterViewVue,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/logout',
+      name: 'logout',
+      component: LogoutViewVue,
       meta: {
         requiresAuth: true
       }

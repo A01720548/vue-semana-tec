@@ -8,7 +8,7 @@
           <button
             type="button"
             class="login-with-google-btn"
-            @click="loginHandler"
+            @click="$store.dispatch('login')"
           >Sign in with Google</button>
         </va-card-content>
       </va-card>
@@ -17,15 +17,6 @@
 </template>
 
 <script setup>
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { ref } from 'vue'
-import { useStore } from 'vuex'
-
-const store = useStore();
-
-const loginHandler = () => {
-  store.dispatch('login')
-}
 
 </script>
 

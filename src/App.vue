@@ -5,7 +5,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 </script>
 
 <template>
-  <header>
+  <header v-if="$store.state.user">
     <div class="mb-4" style="height: 100vh; border: 2px solid var(--va-primary);">
       <va-sidebar color="success" gradient minimizedWidth="64px" width="18rem" hoverable>
         <va-sidebar-item
@@ -14,11 +14,12 @@ import HelloWorld from "@/components/HelloWorld.vue";
           :active="item.active"
           active-color="background"
         >
-          <RouterLink :to="item.link"></RouterLink>
-          <va-sidebar-item-content>
-            <va-icon :name="item.icon" />
-            <va-sidebar-item-title style="height: 24px;">{{ item.title }}</va-sidebar-item-title>
-          </va-sidebar-item-content>
+          <RouterLink :to="item.link">
+            <va-sidebar-item-content>
+              <va-icon :name="item.icon" />
+              <va-sidebar-item-title style="height: 24px;">{{ item.title }}</va-sidebar-item-title>
+            </va-sidebar-item-content>
+          </RouterLink>
         </va-sidebar-item>
       </va-sidebar>
     </div>
@@ -26,11 +27,22 @@ import HelloWorld from "@/components/HelloWorld.vue";
   <RouterView />
 </template>
 <script>
+import { onBeforeMount } from "vue";
+import { useStore } from "vuex";
+
+
 export default {
+  setup() {
+    const store = useStore()
+    onBeforeMount(() => {
+      store.dispatch('fetchUser')
+    })
+  },
   data() {
     return {
       items: [
-        { title: 'Home', icon: 'home', active: true, link: 'home' },
+        { title: 'Home', icon: 'home', active: true, link: '/' },
+        { title: 'Register', icon: 'home', link: 'register' },
         { title: 'Birthday', icon: 'cake', link: 'birthday' },
         { title: 'Favorite Number', icon: 'favorite', link: 'favorite' },
         { title: 'Sign Out', icon: 'logout', link: 'logout' },
