@@ -46,6 +46,6 @@ export default {
     justify-content: center;
     min-height: 100vh;
     padding: 10rem;
-    max-width: fit-content;
+    /* max-width: fit-content; */
 }
 </style>
