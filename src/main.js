@@ -7,7 +7,6 @@ import { initializeApp } from "firebase/app";
 import {getFirestore} from 'firebase/firestore'
 import { GoogleAuthProvider, getAuth } from 'firebase/auth'
 import store from './store'
-import axios from 'axios'
 
 
 const firebaseConfig = {

@@ -45,6 +45,8 @@ export default {
         { title: 'Birthday', icon: 'cake', link: 'birthday' },
         { title: 'Favorite Number', icon: 'favorite', link: 'favorite' },
         { title: 'Fact of the Day', icon: 'event', link: 'fact' },
+        { title: 'Random Facts', icon: 'casino', link: 'random' },
+        { title: 'Horoscope', icon: 'auto_awesome', link: 'horoscope' },
         { title: 'Team', icon: 'groups', link: 'team' },
         { title: 'Sign Out', icon: 'logout', link: 'logout' },
       ],

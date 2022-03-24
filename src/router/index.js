@@ -8,6 +8,8 @@ import { auth } from '../main'
 import FactViewVue from '../views/FactView.vue'
 import BirthdayViewVue from '../views/BirthdayView.vue'
 import FavoriteViewVue from '../views/FavoriteView.vue'
+import RandomViewVue from '../views/RandomView.vue'
+import HoroscopeViewVue from '../views/HoroscopeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -66,6 +68,22 @@ const router = createRouter({
       path: '/favorite',
       name: 'favorite',
       component: FavoriteViewVue,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/random',
+      name: 'random',
+      component: RandomViewVue,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/horoscope',
+      name: 'horoscope',
+      component: HoroscopeViewVue,
       meta: {
         requiresAuth: true
       }

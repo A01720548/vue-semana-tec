@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <va-list>
-            <va-list-label color="success">Contacts</va-list-label>
+            <va-list-label color="success">Team Members</va-list-label>
 
             <va-list-item v-for="(contact, index) in contacts" :key="index">
                 <va-list-item-section avatar>
@@ -45,7 +45,6 @@ export default {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 10rem;
-    /* max-width: fit-content; */
+    padding: 10rem 30rem;
 }
 </style>
