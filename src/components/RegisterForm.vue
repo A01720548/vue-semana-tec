@@ -1,8 +1,17 @@
 <script setup>
 import { db } from '../main'
-import { collection, addDoc } from 'firebase/firestore'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { auth } from '../main'
 
+// const docRef = doc(db, "userData", auth.currentUser.uid);
+// const docSnap = await getDoc(docRef);
+
+// if (docSnap.exists()) {
+//     console.log("Document data:", docSnap.data());
+// } else {
+//     // doc.data() will be undefined in this case
+//     console.log("No such document!");
+// }
 
 </script>
 
@@ -15,20 +24,6 @@ import { auth } from '../main'
                     <va-form style="width: 100%">
                         <va-input
                             color="success"
-                            class="mb-4"
-                            label="First Name"
-                            v-model="firstNameValue"
-                            :rules="[value => (value && value.length > 0) || 'Field is required']"
-                        />
-                        <va-input
-                            color="success"
-                            label="Last Name"
-                            class="mb-4"
-                            v-model="lastNameValue"
-                            :rules="[value => (value && value.length > 0) || 'Field is required']"
-                        />
-                        <va-input
-                            color="success"
                             label="Favorite Number"
                             class="mb-4"
                             v-model="favoriteNumber"
@@ -37,7 +32,12 @@ import { auth } from '../main'
                         />
                         <div class="centeredItem">
                             <va-date-picker color="success" v-model="dateValue" />
-                            <va-button @click="handleSubmit" size="large" color="success">Submit</va-button>
+                            <va-button
+                                @click="handleSubmit"
+                                size="large"
+                                color="success"
+                                id="submitButton"
+                            >Submit</va-button>
                         </div>
                     </va-form>
                 </va-card-content>
@@ -50,26 +50,23 @@ import { auth } from '../main'
 export default {
     data() {
         return {
-            firstNameValue: '',
-            lastNameValue: '',
             favoriteNumber: null,
             dateValue: new Date(),
         }
     },
     methods: {
         handleSubmit: async function () {
+            document.getElementById('submitButton').loading = true;
             console.log('clicked')
             try {
-                const docRef = await addDoc(collection(db, "userData"), {
-                    firstName: this.firstNameValue,
-                    lastName: this.lastNameValue,
+                await setDoc(doc(db, "userData", auth.currentUser.uid), {
                     favoriteNumber: this.favoriteNumber,
                     dob: this.dateValue,
-                    uid: auth.currentUser.uid
                 });
-                console.log("Document written with ID: ", docRef.id);
+                alert('Succesfully updated DB');
             } catch (e) {
                 console.error("Error adding document: ", e);
+                $vaToast.init({ message: 'Error adding document', color: 'danger' })
             }
         }
     },

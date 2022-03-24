@@ -1,12 +1,12 @@
-<template>
-  <div class="container">
-    <h1 class="display-1">Home Page</h1>
-  </div>
-</template>
-
-<script>
+<script setup>
+import { auth } from '../main'
 
 </script>
+<template>
+  <div class="container">
+    <h1 class="display-1">Welcome, {{ auth.currentUser.displayName }}</h1>
+  </div>
+</template>
 
 <style scoped>
 .container {

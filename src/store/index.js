@@ -27,6 +27,9 @@ export default createStore({
         // The signed-in user info.
         const user = result.user;
         // ...
+        commit('SET_USER', auth.currentUser)
+
+        router.push('/')
       })
       .catch((error) => {
         // Handle Errors here.
@@ -38,9 +41,6 @@ export default createStore({
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
-      commit('SET_USER', auth.currentUser)
-
-      router.push('/')
     },
     async logout ({commit}) {
       await signOut(auth)
