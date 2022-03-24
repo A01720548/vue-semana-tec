@@ -3,16 +3,6 @@ import { db } from '../main'
 import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { auth } from '../main'
 
-// const docRef = doc(db, "userData", auth.currentUser.uid);
-// const docSnap = await getDoc(docRef);
-
-// if (docSnap.exists()) {
-//     console.log("Document data:", docSnap.data());
-// } else {
-//     // doc.data() will be undefined in this case
-//     console.log("No such document!");
-// }
-
 </script>
 
 <template>
@@ -51,7 +41,20 @@ export default {
     data() {
         return {
             favoriteNumber: null,
-            dateValue: new Date(),
+            dateValue: null,
+        }
+    },
+    async created() {
+        const docRef = doc(db, "userData", auth.currentUser.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            this.favoriteNumber = docSnap.data().favoriteNumber
+            this.dateValue = docSnap.data().dob.toDate()
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
         }
     },
     methods: {

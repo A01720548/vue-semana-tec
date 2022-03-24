@@ -1,3 +1,10 @@
+<script setup>
+import { db } from '../main'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
+import { auth } from '../main'
+import axios from 'axios'
+</script>
+
 <template>
     <div class="container">
         <h1 class="display-1">Birhday Fact</h1>
@@ -7,28 +14,32 @@
 </template>
 
 <script>
-import axios from 'axios'
-
-var birthday = 973296000 * 1000; // convertir a milisegundos
-birthday = new Date(birthday);
-var favoriteNumber = 25;
-favoriteNumber = favoriteNumber.toString();
-
 const numbersApi = "http://numbersapi.com/";
 const datePath = "/date";
 
-//convert birthday to api format
-var birthdayPath = (birthday.getMonth() + 1).toString() + "/" + (birthday.getDate()).toString()
 
 export default {
     name: 'get-birthday-fact',
     data() {
         return {
-            birthdayFact: null
+            birthdayFact: null,
+            birthday: null
         };
     },
-    created() {
+    async created() {
+        const docRef = doc(db, "userData", auth.currentUser.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            this.birthday = docSnap.data().dob.toDate()
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+
         //get birthday trivia message
+        var birthdayPath = (this.birthday.getMonth() + 1).toString() + "/" + (this.birthday.getDate()).toString()
         axios.get(numbersApi + birthdayPath + datePath)
             .then((response) => {
                 console.log("Did you know that your birthday on ")
