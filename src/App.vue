@@ -41,9 +41,11 @@ export default {
     return {
       items: [
         { title: 'Home', icon: 'home', active: true, link: '/' },
-        { title: 'Register', icon: 'home', link: 'register' },
+        { title: 'Register', icon: 'app_registration', link: 'register' },
         { title: 'Birthday', icon: 'cake', link: 'birthday' },
         { title: 'Favorite Number', icon: 'favorite', link: 'favorite' },
+        { title: 'Fact of the Day', icon: 'event', link: 'fact' },
+        { title: 'Team', icon: 'groups', link: 'team' },
         { title: 'Sign Out', icon: 'logout', link: 'logout' },
       ],
     }

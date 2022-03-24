@@ -5,6 +5,9 @@ import RegisterViewVue from '../views/RegisterView.vue'
 import LogoutViewVue from '../views/LogoutView.vue'
 import TeamViewVue from '../views/TeamView.vue'
 import { auth } from '../main'
+import FactViewVue from '../views/FactView.vue'
+import BirthdayViewVue from '../views/BirthdayView.vue'
+import FavoriteViewVue from '../views/FavoriteView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +42,30 @@ const router = createRouter({
       path: '/logout',
       name: 'logout',
       component: LogoutViewVue,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/fact',
+      name: 'fact',
+      component: FactViewVue,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/birthday',
+      name: 'birthday',
+      component: BirthdayViewVue,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/favorite',
+      name: 'favorite',
+      component: FavoriteViewVue,
       meta: {
         requiresAuth: true
       }
