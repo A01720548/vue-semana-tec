@@ -31,7 +31,6 @@ const app = createApp(App)
 app.use(router)
 app.use(VuesticPlugin)
 app.use(store)
-// app.use(axios)
 
 app.mount('#app')
 
