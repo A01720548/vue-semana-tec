@@ -14,6 +14,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
           :active="item.active"
           active-color="background"
         >
+          <RouterLink :to="item.link"></RouterLink>
           <va-sidebar-item-content>
             <va-icon :name="item.icon" />
             <va-sidebar-item-title style="height: 24px;">{{ item.title }}</va-sidebar-item-title>
@@ -29,10 +30,10 @@ export default {
   data() {
     return {
       items: [
-        { title: 'Home', icon: 'home', active: true },
-        { title: 'Birthday', icon: 'cake' },
-        { title: 'Favorite Number', icon: 'favorite' },
-        { title: 'Sign Out', icon: 'logout' },
+        { title: 'Home', icon: 'home', active: true, link: 'home' },
+        { title: 'Birthday', icon: 'cake', link: 'birthday' },
+        { title: 'Favorite Number', icon: 'favorite', link: 'favorite' },
+        { title: 'Sign Out', icon: 'logout', link: 'logout' },
       ],
     }
   },

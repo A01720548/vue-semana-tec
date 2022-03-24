@@ -1,13 +1,14 @@
-<script setup>
-</script>
-
 <template>
   <div class="container">
     <h1 class="display-1">Home Page</h1>
   </div>
 </template>
 
-<style>
+<script>
+
+</script>
+
+<style scoped>
 .container {
   display: flex;
   flex-direction: column;
