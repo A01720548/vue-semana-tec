@@ -30,7 +30,7 @@ export default {
         return {
             contacts: [
                 { name: 'Esteban de la Maza', matricula: 'A01720548', img: 'https://avatars.githubusercontent.com/u/82958825?v=4' },
-                { name: 'Carlos Astengo', matricula: 'A01570405', img: 'https://randomuser.me/api/portraits/men/1.jpg' },
+                { name: 'Carlos Astengo', matricula: 'A01570405', img: 'https://avatars.githubusercontent.com/u/69476270?s=100&v=4' },
                 { name: 'Ivan Delfin', matricula: 'A01024265', img: 'https://avatars.githubusercontent.com/u/75266088?v=4' },
                 { name: 'Marcelo Marquez Murillo', matricula: 'A01720588', img: 'https://avatars.githubusercontent.com/u/55757884?v=4' },
             ],
