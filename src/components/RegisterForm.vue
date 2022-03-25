@@ -1,6 +1,6 @@
 <script setup>
 import { db } from '../main'
-import { doc, setDoc, getDoc } from 'firebase/firestore'
+import { doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore'
 import { auth } from '../main'
 
 </script>
@@ -22,12 +22,22 @@ import { auth } from '../main'
                         />
                         <div class="centeredItem">
                             <va-date-picker color="success" v-model="dateValue" />
-                            <va-button
-                                @click="handleSubmit"
-                                size="large"
-                                color="success"
-                                id="submitButton"
-                            >Submit</va-button>
+                            <div class="buttonsContainer">
+                                <va-button
+                                    @click="handleDelete"
+                                    size="large"
+                                    color="danger"
+                                    id="submitButton"
+                                    style="margin: 1rem;"
+                                >Delete</va-button>
+                                <va-button
+                                    @click="handleSubmit"
+                                    size="large"
+                                    color="success"
+                                    id="submitButton"
+                                    style="margin: 1rem;"
+                                >Submit</va-button>
+                            </div>
                         </div>
                     </va-form>
                 </va-card-content>
@@ -59,7 +69,6 @@ export default {
     },
     methods: {
         handleSubmit: async function () {
-            document.getElementById('submitButton').loading = true;
             console.log('clicked')
             try {
                 await setDoc(doc(db, "userData", auth.currentUser.uid), {
@@ -69,7 +78,14 @@ export default {
                 alert('Succesfully updated DB');
             } catch (e) {
                 console.error("Error adding document: ", e);
-                $vaToast.init({ message: 'Error adding document', color: 'danger' })
+            }
+        },
+        handleDelete: async function () {
+            try {
+                await deleteDoc(doc(db, "userData", auth.currentUser.uid));
+                alert('Succesfully Deleted Entry in DB');
+            } catch (e) {
+                console.error("Error deleting document: ", e);
             }
         }
     },
@@ -91,5 +107,9 @@ export default {
     justify-content: center;
     padding: 1rem;
     flex-direction: column;
+}
+
+.buttonsContainer {
+    display: flex;
 }
 </style>
