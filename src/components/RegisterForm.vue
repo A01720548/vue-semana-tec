@@ -9,7 +9,7 @@ import { auth } from '../main'
     <div class="container">
         <div class="flex md6 lg4">
             <va-card stripe stripe-color="success" style="width: 30rem">
-                <va-card-title>Register User Data</va-card-title>
+                <va-card-title>Register your favorite number and date of birth!</va-card-title>
                 <va-card-content>
                     <va-form style="width: 100%">
                         <va-input

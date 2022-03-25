@@ -31,8 +31,8 @@ export default {
             contacts: [
                 { name: 'Esteban de la Maza', matricula: 'A01720548', img: 'https://avatars.githubusercontent.com/u/82958825?v=4' },
                 { name: 'Carlos Astengo', matricula: '626 Carroll Street, Roulette, Ohio, 1477', img: 'https://randomuser.me/api/portraits/men/1.jpg' },
-                { name: 'Ivan Delfin', matricula: 'A01024265', img: 'https://randomuser.me/api/portraits/men/3.jpg' },
-                { name: 'Marcelo', matricula: '286 NW. Shore St.Longwood, FL 32779', img: 'https://randomuser.me/api/portraits/men/5.jpg' },
+                { name: 'Ivan Delfin', matricula: 'A01024265', img: 'https://avatars.githubusercontent.com/u/75266088?v=4' },
+                { name: 'Marcelo Marquez Murillo', matricula: 'A01720588', img: 'https://avatars.githubusercontent.com/u/55757884?v=4' },
             ],
         }
     },

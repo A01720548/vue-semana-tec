@@ -3,16 +3,26 @@ import axios from 'axios'
 </script>
 
 <template>
-    <div class="container">
-        <h1 class="display-1">Favorite Number</h1>
-        <h2>Did you know that the number</h2>
-        <p>{{ randomTrivia }}</p>
-        <h2>Did you know that the year</h2>
-        <p>{{ randomYear }}</p>
-        <h2>Did you know that</h2>
-        <p>{{ randomDate }}</p>
-        <h2>Did you know that the number</h2>
-        <p>{{ randomMath }}</p>
+    <div>
+        <h1 class="display-1">Random Fact</h1>
+    </div>
+    <div class="mega-container">
+        <div class="container">
+            <h2>Did you know that the number</h2>
+            <p>{{ randomTrivia }}</p>
+        </div>
+        <div class="container">
+            <h2>Did you know that the year</h2>
+            <p>{{ randomYear }}</p>
+        </div>
+        <div class="container">
+            <h2>Did you know that</h2>
+            <p>{{ randomDate }}</p>
+        </div>
+        <div class="container">
+            <h2>Did you know that the number</h2>
+            <p>{{ randomMath }}</p>
+        </div>
     </div>
 </template>
 
@@ -82,14 +92,33 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Poppins:wght@100&display=swap');
+.mega-container {
+    /* align-items: center;
+    justify-content: center; */
+    margin: 10rem auto 20rem auto;
+}
 .container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 5px;
+    overflow: auto;
+    max-width: 1000px;
+    /* max-height: 1000px; */
+    border: 1px solid steelblue;
+    display: flex;
+    flex-direction: column;
+    min-height: 15vh;
+    text-align: center;
 }
 .display-1 {
     color: white;
+    text-align: center;
+    font-family: 'Spectral', 'sans-Serif';
+    /* position: absolute; */
+    padding-top: 20px;
+    
 }
 </style>
