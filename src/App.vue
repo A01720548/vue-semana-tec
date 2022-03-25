@@ -73,5 +73,6 @@ export default {
 
 header {
   position: absolute;
+  /* margin: 0rem 2rem; */
 }
 </style>

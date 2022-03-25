@@ -7,9 +7,11 @@ import axios from 'axios'
 </script>
 
 <template>
+    <div>
+        <h1 class="display-1">Your Horoscope of the day!</h1>
+    </div>
     <div class="container">
-        <h1 class="display-1">Birhday Fact</h1>
-        <h2>For you {{ sign }}</h2>
+        <h2>For you: {{ sign }}</h2>
         <p>{{ horoscope }}</p>
     </div>
 </template>
@@ -60,14 +62,30 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Poppins:wght@100&display=swap');
 .container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 5px;
+    overflow: auto;
+    max-width: 1000px;
+    /* max-height: 1000px; */
+    border: 1px solid steelblue;
+    display: flex;
+    flex-direction: column;
+    min-height: 30vh;
+    margin: 20rem auto 20rem auto;
+    text-align: justify;
 }
+
 .display-1 {
     color: white;
+    text-align: center;
+    font-family: 'Spectral', 'sans-Serif';
+    /* position: absolute; */
+    padding-top: 20px;
+    
 }
+
 </style>

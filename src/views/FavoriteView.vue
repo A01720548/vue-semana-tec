@@ -6,12 +6,18 @@ import { auth } from '../main'
 </script>
 
 <template>
-    <div class="container">
+    <div>
         <h1 class="display-1">Favorite Number</h1>
-        <h2>Did yo know that your favorite number</h2>
-        <p>{{ favoriteTrivia }}</p>
-        <h2>Did yo know that your favorite number</h2>
-        <p>{{ favoriteMath }}</p>
+    </div>
+    <div class="mega-container">
+        <div class="container">
+            <h2>Trivia: Did yo know that your favorite number</h2>
+            <p>{{ favoriteTrivia }}</p>
+        </div>
+        <div class="container">
+            <h2>Math: Did yo know that your favorite number</h2>
+            <p>{{ favoriteMath }}</p>
+        </div>
     </div>
 </template>
 
@@ -67,14 +73,33 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Poppins:wght@100&display=swap');
+.mega-container {
+    /* align-items: center;
+    justify-content: center; */
+    margin: 20rem auto 20rem auto;
+}
 .container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 5px;
+    overflow: auto;
+    max-width: 1000px;
+    /* max-height: 1000px; */
+    border: 1px solid steelblue;
+    display: flex;
+    flex-direction: column;
+    min-height: 15vh;
+    text-align: center;
 }
 .display-1 {
     color: white;
+    text-align: center;
+    /* position: absolute; */
+    font-family: 'Spectral', 'sans-Serif';
+    padding-top: 20px;
+    
 }
 </style>

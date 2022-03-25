@@ -1,10 +1,16 @@
 <template>
-    <div class="container">
-        <h1 class="display-1">Fact of the Day</h1>
-        <h2>Today's number is {{ key }}</h2>
-        <p>{{ dailyTrivia }}</p>
-        <h2>Did you know that today,</h2>
-        <p>{{ dailyTriviaDate }}</p>
+    <div class="display-1">
+        <h1>Fact of the Day</h1>
+    </div>
+    <div class="mega-container">
+        <div class="container">
+            <h2>Today's number</h2>
+            <p>{{ dailyTrivia }}</p>
+        </div>
+        <div class="container">
+            <h2>Did you know that today,</h2>
+            <p>{{ dailyTriviaDate }}</p>
+        </div>
     </div>
 </template>
 
@@ -22,6 +28,7 @@ const max = 365;
 const seed = parseInt((currentDate.getMonth()).toString() + (currentDate.getDate()).toString());
 var key = ((seed * 9301 + 49297) % 233280) / 233280;
 key = Math.floor(min + key * (max - min));
+console.log(key);
 
 export default {
     name: 'daily-fact',
@@ -60,14 +67,35 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Poppins:wght@100&display=swap');
+.mega-container {
+    /* align-items: center;
+    justify-content: center; */
+    margin: 20rem auto 20rem auto;
+}
+
 .container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 5px;
+    overflow: auto;
+    max-width: 1000px;
+    /* max-height: 1000px; */
+    border: 1px solid steelblue;
+    display: flex;
+    flex-direction: column;
+    min-height: 15vh;
+    text-align: center;
 }
 .display-1 {
     color: white;
+    text-align: center;
+    font-family: 'Spectral', 'sans-Serif';
+    /* margin-top: 2rem auto; */
+    padding-top: 20px;
+    
+    /* margin: 3rem 0rem; */
 }
 </style>
